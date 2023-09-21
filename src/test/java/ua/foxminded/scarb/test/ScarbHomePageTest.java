@@ -13,27 +13,27 @@ import org.testng.annotations.Test;
 public class ScarbHomePageTest {
 
 
-        private WebDriver driver;
+    private WebDriver driver;
 
-        @BeforeMethod
-        public void setUp(){
-            driver = new ChromeDriver();
-            String baseUrl = "https://skarb.foxminded.ua/";
-            driver.get(baseUrl);
-        }
+    @BeforeMethod
+    public void setUp() {
+        driver = new ChromeDriver();
+        String baseUrl = "https://skarb.foxminded.ua/";
+        driver.get(baseUrl);
+    }
 
-        @Test
-        public void getToHomePageTest(){
-            WebElement title = driver.findElement(By.cssSelector("h4.text-dark-red"));
-            Assert.assertEquals(title.getText(), "SKARB NGO");
-        }
+    @Test
+    public void getToHomePageTest() {
+        WebElement title = driver.findElement(By.cssSelector("h4.text-dark-red"));
+        Assert.assertEquals(title.getText(), "SKARB NGO");
+    }
 
-        @AfterMethod(alwaysRun = true)
-        public void tearDown(){
-            if (driver!=null){
-                driver.close();
-                driver.quit();
-            }
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+        if (driver != null) {
+            driver.close();
+            driver.quit();
         }
     }
+}
 
