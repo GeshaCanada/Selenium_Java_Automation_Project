@@ -12,30 +12,14 @@ import java.util.Properties;
 // создаем WebDriver из файла .properties
 public class WebDriverFactory {
 
-    static public WebDriver create() throws  NotSupportedBrowserException {
+    static public WebDriver create() {
         // Загрузка файла конфигурации
         Properties properties = new Properties();
-        FileInputStream fileInputStream = null;
 
-        try {
-            // Попытка открыть файл
-            fileInputStream = new FileInputStream("src/config.properties");
+        try (FileInputStream fileInputStream = new FileInputStream("src/config.properties")) {
             properties.load(fileInputStream);
-
-            // Код для работы с properties
-
         } catch (IOException e) {
-            // Обработка исключения ввода/вывода
             e.printStackTrace();
-        } finally {
-            try {
-                if (fileInputStream != null) {
-                    fileInputStream.close();
-                }
-            } catch (IOException e) {
-                // Обработка исключения, если не удалось закрыть поток
-                e.printStackTrace();
-            }
         }
         // Получение значения браузера из файла конфигурации
         String browser = properties.getProperty("browser");
