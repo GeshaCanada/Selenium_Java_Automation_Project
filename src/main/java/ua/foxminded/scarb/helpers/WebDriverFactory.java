@@ -12,7 +12,7 @@ import java.util.Properties;
 // создаем WebDriver из файла .properties
 public class WebDriverFactory {
 
-    static public WebDriver create() {
+    public static WebDriver create() {
         // Загрузка файла конфигурации
         Properties properties = new Properties();
 
