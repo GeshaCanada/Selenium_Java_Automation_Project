@@ -1,21 +1,18 @@
 package ua.foxminded.scarb.test;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
 import ua.foxminded.scarb.helpers.WebDriverFactory;
 
-public class ScarbHomePageTest {
+public class ScarbHomePageTest2 {
     private WebDriver driver;
     private String baseUrl = "https://skarb.foxminded.ua/";
 
-    @BeforeTest
+    @BeforeMethod
 
     public void setUp() throws NotSupportedBrowserException {
 
@@ -25,12 +22,6 @@ public class ScarbHomePageTest {
 
     }
 
-    @Test
-    public void getToHomePageTest() {
-
-        WebElement title = driver.findElement(By.cssSelector("h4.text-dark-red"));
-        Assert.assertEquals(title.getText(), "SKARB NGO");
-    }
     @Test
     public void getButtonTextTest() {
         //driver.get(baseUrl);
@@ -47,7 +38,8 @@ public class ScarbHomePageTest {
         WebElement title = driver.findElement(By.cssSelector("h2"));
         Assert.assertEquals(title.getText(), "Поиск задач");
     }
-    @AfterTest
+
+    @AfterMethod
     public void tearDown() {
         if (driver != null) {
             driver.quit();
