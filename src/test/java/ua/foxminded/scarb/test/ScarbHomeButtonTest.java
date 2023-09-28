@@ -8,16 +8,16 @@ import org.testng.annotations.*;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
 import ua.foxminded.scarb.helpers.WebDriverFactory;
 
-public class ScarbHomePageTest2 {
+public class ScarbHomeButtonTest {
     private WebDriver driver;
     private String baseUrl = "https://skarb.foxminded.ua/";
 
     @BeforeMethod
-
     public void setUp() throws NotSupportedBrowserException {
 
         // просим WebDriverFactory создать driver
         driver = WebDriverFactory.create();
+        driver.manage().window().maximize();
         driver.get(baseUrl);
 
     }

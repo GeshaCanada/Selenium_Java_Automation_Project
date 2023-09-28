@@ -11,16 +11,16 @@ import org.testng.annotations.Test;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
 import ua.foxminded.scarb.helpers.WebDriverFactory;
 
-public class ScarbHomePageTest1 {
+public class ScarbHomePageTest {
     private WebDriver driver;
     private String baseUrl = "https://skarb.foxminded.ua/";
 
     @BeforeTest
-
     public void setUp() throws NotSupportedBrowserException {
 
         // просим WebDriverFactory создать driver
         driver = WebDriverFactory.create();
+        driver.manage().window().maximize();
         driver.get(baseUrl);
 
     }
@@ -33,7 +33,6 @@ public class ScarbHomePageTest1 {
     }
 
     @Test
-
     public void checkContactUsTest() {
         WebElement contactUs = driver.findElement(By.partialLinkText("Связаться с нами"));
         contactUs.click();

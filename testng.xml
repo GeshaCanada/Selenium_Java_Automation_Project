@@ -2,12 +2,12 @@
 <suite name="MyTestSuite">
     <test name="Test1">
         <classes>
-            <class name="ua.foxminded.scarb.test.ScarbHomePageTest1" />
+            <class name="ua.foxminded.scarb.test.ScarbHomePageTest" />
         </classes>
     </test>
     <test name="Test2">
         <classes>
-            <class name="ua.foxminded.scarb.test.ScarbHomePageTest2" />
+            <class name="ua.foxminded.scarb.test.ScarbHomeButtonTest" />
         </classes>
     </test>
 </suite>
