@@ -24,6 +24,7 @@ public class WebDriverFactory {
         // Получение значения браузера из файла конфигурации
         String browser = properties.getProperty("browser");
 
+
         // Инициализация браузера в зависимости от значения
         if ("chrome".equalsIgnoreCase(browser)) {
             return new ChromeDriver();

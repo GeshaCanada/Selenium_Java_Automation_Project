@@ -1,21 +1,18 @@
 package ua.foxminded.scarb.test;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
 import ua.foxminded.scarb.helpers.WebDriverFactory;
 
-public class ScarbHomePageTest {
+public class ScarbHomeButtonTest {
     private WebDriver driver;
     private String baseUrl = "https://skarb.foxminded.ua/";
 
-    @BeforeTest
+    @BeforeMethod
     public void setUp() throws NotSupportedBrowserException {
 
         // просим WebDriverFactory создать driver
@@ -26,21 +23,23 @@ public class ScarbHomePageTest {
     }
 
     @Test
-    public void getToHomePageTest() {
+    public void getButtonTextTest() {
+        //driver.get(baseUrl);
 
-        WebElement title = driver.findElement(By.cssSelector("h4.text-dark-red"));
-        Assert.assertEquals(title.getText(), "SKARB NGO");
+        WebElement button = driver.findElement(By.cssSelector("button[name=tasks-button]"));
+        Assert.assertEquals(button.getText(), "Смотреть задачи");
     }
 
     @Test
-    public void checkContactUsTest() {
-        WebElement contactUs = driver.findElement(By.partialLinkText("Связаться с нами"));
-        contactUs.click();
-        WebElement page = driver.findElement(By.cssSelector("title.info_title.title--red"));
-        Assert.assertEquals(page.getText(), "Свяжитесь с нами");
+    public void taskButtonActionTest() {
+
+        WebElement button = driver.findElement(By.cssSelector("div.statistic button"));
+        button.click();
+        WebElement title = driver.findElement(By.cssSelector("h2"));
+        Assert.assertEquals(title.getText(), "Поиск задач");
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         if (driver != null) {
             driver.quit();
