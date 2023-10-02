@@ -28,24 +28,24 @@ public class SuccessStoryPageTest {
     @Test
     public void checkSuccessStoryPageTextTest() {
 
-        WebElement page = driver.findElement(By.linkText("Истории успеха"));
-        Assert.assertEquals(page.getText(), "Истории успеха");
+        WebElement pageTitle = driver.findElement(By.linkText("Истории успеха"));
+        Assert.assertTrue(pageTitle.isDisplayed());
 
     }
 
     @Test
     public void checkNavigationToSuccessStoryPageTest() {
 
-        WebElement page = driver.findElement(By.linkText("Истории успеха"));
-        page.click();
+        WebElement pageTitle = driver.findElement(By.linkText("Истории успеха"));
+        pageTitle.click();
 
     }
 
     @Test
     public void checkSearchInputTest() {
 
-        WebElement page = driver.findElement(By.linkText("Истории успеха"));
-        page.click();
+        WebElement pageTitle = driver.findElement(By.linkText("Истории успеха"));
+        pageTitle.click();
         // Find the search input element
         WebElement searchInput = driver.findElement(By.cssSelector("input[id='storyNameSearchFilter']"));
         // Enter a search query
@@ -57,10 +57,10 @@ public class SuccessStoryPageTest {
     }
 
     @Test
-    public void testShowMore() {
+    public void showMoreSuccessStoriesFunctionTest() {
 
-        WebElement page = driver.findElement(By.linkText("Истории успеха"));
-        page.click();
+        WebElement pageTitle = driver.findElement(By.linkText("Истории успеха"));
+        pageTitle.click();
         WebElement showMoreLink = driver.findElement(By.linkText("Показать больше"));
         // Проверяем, что ссылка видима и активна
         Assert.assertTrue(showMoreLink.isDisplayed(), "Ссылка 'Показать больше' не видима.");
@@ -72,11 +72,11 @@ public class SuccessStoryPageTest {
     @Test
     public void checkNavigateHomePageTest() {
 
-        WebElement page = driver.findElement(By.linkText("Истории успеха"));
-        page.click();
+        WebElement pageTitle = driver.findElement(By.linkText("Истории успеха"));
+        pageTitle.click();
         WebElement link = driver.findElement(By.cssSelector("h4.text-dark-red"));
         link.click();
-        String currentUrl = baseUrl;
+        String currentUrl = driver.getCurrentUrl();;
         String expectedUrl = "https://skarb.foxminded.ua/";
         Assert.assertEquals(currentUrl, expectedUrl, "После нажатия 'SKARB NGO' не была открыта ожидаемая страница.");
 
