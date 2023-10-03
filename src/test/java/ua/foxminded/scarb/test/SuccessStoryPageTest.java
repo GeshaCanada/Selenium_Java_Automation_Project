@@ -74,8 +74,8 @@ public class SuccessStoryPageTest {
 
         WebElement pageTitle = driver.findElement(By.linkText("Истории успеха"));
         pageTitle.click();
-        WebElement link = driver.findElement(By.cssSelector("h4.text-dark-red"));
-        link.click();
+        WebElement linkPage = driver.findElement(By.cssSelector("h4.text-dark-red"));
+        linkPage.click();
         String currentUrl = driver.getCurrentUrl();;
         String expectedUrl = "https://skarb.foxminded.ua/";
         Assert.assertEquals(currentUrl, expectedUrl, "После нажатия 'SKARB NGO' не была открыта ожидаемая страница.");
