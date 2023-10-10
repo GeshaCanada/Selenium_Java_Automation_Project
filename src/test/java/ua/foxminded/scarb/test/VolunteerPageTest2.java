@@ -41,9 +41,9 @@ public class VolunteerPageTest2 {
         Volunteer volunteer = Instancio.of(Volunteer.class)
                 .generate(field(Volunteer::getEmail), gen -> gen.text().pattern("#a#a#a#a#a#a@yahoo.com"))
                 .generate(field(Volunteer::getPhoneNumber), gen -> gen.text().pattern(8 + "#d#d#d#d#d#d#d#d#d"))
-                //.generate(field(Volunteer::getFirstName), gen -> gen.text().pattern("[a-z]{12}"))
-                //.generate(field(Volunteer::getLastName), gen -> gen.text().pattern ("[a-z]{12}"))
-                //.generate(field(Volunteer::getPassword), gen -> gen.text().pattern("[A-Z][A-Z][a-z][a-z][0-9]{8}[!@#$%^&*()_+\\-=\\[\\]{};':\",.<>/?\\\\|]"))
+                .set(field(Volunteer::getFirstName), RandomDataGenerator.generateRandomString())
+                .set(field(Volunteer::getLastName), RandomDataGenerator.generateRandomString())
+                .set(field(Volunteer::getPassword), RandomDataGenerator.generateStrongPassword())
                 .create();
 
         WebElement email = driver.findElement(By.id("email"));
@@ -52,17 +52,17 @@ public class VolunteerPageTest2 {
         WebElement phoneNumber = driver.findElement(By.id("phoneNumber"));
         phoneNumber.sendKeys(volunteer.getPhoneNumber());
 
-        String randomNameValue = RandomDataGenerator.generateRandomString();
         WebElement firstName = driver.findElement(By.id("firstName"));
-        firstName.sendKeys(randomNameValue);
-        WebElement lastName = driver.findElement(By.id("lastName"));
-        lastName.sendKeys(randomNameValue);
+        firstName.sendKeys(volunteer.getFirstName());
 
-        String passwordValue = RandomDataGenerator.generateStrongPassword();
+        WebElement lastName = driver.findElement(By.id("lastName"));
+        lastName.sendKeys(volunteer.getLastName());
+
         WebElement password = driver.findElement(By.id("password"));
-        password.sendKeys(passwordValue);
+        password.sendKeys(volunteer.getPassword());
+
         WebElement confirmPassword = driver.findElement(By.id("confirmPassword"));
-        confirmPassword.sendKeys(passwordValue);
+        confirmPassword.sendKeys(volunteer.getPassword());
 
         WebElement btnSuccess = driver.findElement(By.className("btn-success"));
         btnSuccess.click();
