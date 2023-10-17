@@ -1,5 +1,6 @@
 package ua.foxminded.scarb.test;
 
+
 import org.instancio.Instancio;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
