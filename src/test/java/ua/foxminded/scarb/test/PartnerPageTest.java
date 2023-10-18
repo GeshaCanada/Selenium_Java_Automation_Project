@@ -37,19 +37,19 @@ public class PartnerPageTest {
         WebElement email = driver.findElement(By.xpath("//input[@type='email']"));
         email.sendKeys(emailPartnerValue);
 
-        String companyNameValue = RandomDataGenerator2.generateRandomString1();
+        String companyNameValue = RandomDataGenerator2.generateRandomString();
         WebElement companyName = driver.findElement(By.xpath("//input[@id='organizationName']"));
         companyName.sendKeys(companyNameValue);
 
-        String firstNameValue = RandomDataGenerator2.generateRandomString2();
+        String firstNameValue = RandomDataGenerator2.generateRandomString();
         WebElement firstName = driver.findElement(By.xpath("//input[@name='firstName']"));
         firstName.sendKeys(firstNameValue);
 
-        String lastNameValue = RandomDataGenerator2.generateRandomString2();
+        String lastNameValue = RandomDataGenerator2.generateRandomString();
         WebElement lastName = driver.findElement(By.xpath("//input[@name='lastName']"));
         lastName.sendKeys(lastNameValue);
 
-        String positionNameValue = RandomDataGenerator2.generateRandomString1();
+        String positionNameValue = RandomDataGenerator2.generateRandomString();
         WebElement positionName = driver.findElement(By.xpath("//input[@id='positionInOrganization']"));
         positionName.sendKeys(positionNameValue);
 
@@ -57,12 +57,12 @@ public class PartnerPageTest {
         sexBox.click();
 
         String passwordValue = RandomDataGenerator.generateStrongPassword();
-        WebElement password = driver.findElement(By.id("password"));
+        WebElement password = driver.findElement(By.cssSelector("input#password"));
         password.sendKeys(passwordValue);
-        WebElement confirmPassword = driver.findElement(By.id("confirmPassword"));
+        WebElement confirmPassword = driver.findElement(By.cssSelector("input#confirmPassword"));
         confirmPassword.sendKeys(passwordValue);
 
-        WebElement btnSuccess = driver.findElement(By.className("btn-success"));
+        WebElement btnSuccess = driver.findElement(By.xpath("//form//div[3]/button"));
         btnSuccess.click();
     }
 

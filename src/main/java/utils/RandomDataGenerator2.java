@@ -11,16 +11,9 @@ public class RandomDataGenerator2 {
         return generatedString + "@skarb.ngo";
     }
 
-    public static String generateRandomString1() {
+    public static String generateRandomString() {
         String randomString = RandomStringUtils.randomAlphabetic(7).toLowerCase();
         return WordUtils.capitalize(randomString);
     }
-
-    public static String generateRandomString2() {
-        String randomString2 = RandomStringUtils.randomAlphabetic(5).toLowerCase();
-        return WordUtils.capitalize(randomString2);
-    }
-
-
 
 }
