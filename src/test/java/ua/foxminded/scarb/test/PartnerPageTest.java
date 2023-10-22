@@ -22,12 +22,13 @@ public class PartnerPageTest {
 
         driver = WebDriverFactory.create();
         driver.manage().window().maximize();
-        driver.get(baseUrl);
 
     }
 
     @Test
+
     public void checkPartnerFormTest() {
+        driver.get(baseUrl);
         WebElement registrationLink = driver.findElement(By.xpath("//a[@href='/registration']"));
         registrationLink.click();
         WebElement btnPartner = driver.findElement(By.xpath("//button[contains(@class, 'btn-success') ]"));
@@ -65,6 +66,7 @@ public class PartnerPageTest {
         WebElement btnSuccess = driver.findElement(By.xpath("//form//div[3]/button"));
         btnSuccess.click();
     }
+
 
     @AfterTest
     public void tearDown() {

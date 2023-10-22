@@ -24,8 +24,8 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.1.0</version>
-            <scope>compile</scope>
+            <version>7.4.0</version>
+            <scope>test</scope>
         </dependency>
         <!-- https://github.com/instancio/instancio#maven-coordinates -->
          <dependency>
@@ -39,7 +39,6 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version> <!-- Используйте актуальную версию библиотеки -->
         </dependency>
-
         <dependency>
             <groupId>com.bryghts.ftypes-string</groupId>
             <artifactId>ftypes-string_2.11</artifactId>
