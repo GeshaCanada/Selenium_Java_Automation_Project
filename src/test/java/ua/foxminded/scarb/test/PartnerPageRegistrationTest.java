@@ -18,7 +18,7 @@ import java.util.List;
 public class PartnerPageRegistrationTest {
     private WebDriver driver;
     private String baseUrl = "https://skarb.foxminded.ua/";
-    private String emailURL = "https://skarbmail.foxminded.ua/";
+    private String emailUrl = "https://skarbmail.foxminded.ua/";
     @BeforeMethod
     public void setUp() throws NotSupportedBrowserException {
         driver = WebDriverFactory.create();
@@ -58,7 +58,7 @@ public class PartnerPageRegistrationTest {
     }
     @Test
     public void checkRegistrationPartnerFormTest() {
-        driver.get(emailURL);
+        driver.get(emailUrl);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Подтверждение регистрации']//ancestor::span"))).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@href, 'https://skarb.foxminded.ua/registration/confirm')]"))).click();
