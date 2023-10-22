@@ -1,6 +1,4 @@
 package ua.foxminded.scarb;
-import org.checkerframework.checker.initialization.qual.Initialized;
-
 
 
 public class Volunteer {
@@ -47,8 +45,8 @@ public class Volunteer {
         return password;
     }
 
-    public void setPassword(String firstName) {
-        this.firstName = firstName;
+    public void setPassword(String password) {
+        this.firstName = password;
     }
 
 }
