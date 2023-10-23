@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
 import ua.foxminded.scarb.helpers.WebDriverFactory;
 import utils.RandomDataGenerator2;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
@@ -62,6 +63,7 @@ public class PartnerPageRegistrationTest {
             }
         }
     }
+
     @AfterMethod
     public void tearDown() {
         if (driver != null) {
