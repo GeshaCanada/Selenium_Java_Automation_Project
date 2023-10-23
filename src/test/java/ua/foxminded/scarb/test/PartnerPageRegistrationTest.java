@@ -50,10 +50,10 @@ public class PartnerPageRegistrationTest {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Подтверждение регистрации']//ancestor::span"))).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@href, 'https://skarb.foxminded.ua/registration/confirm')]"))).click();
     }
-//    @AfterMethod
-//    public void tearDown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @AfterMethod
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
