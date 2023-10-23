@@ -3,15 +3,12 @@ package ua.foxminded.scarb.test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
 import ua.foxminded.scarb.helpers.WebDriverFactory;
 import utils.RandomDataGenerator2;
-
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
@@ -27,14 +24,14 @@ public class PartnerPageRegistrationTest {
     public void setUp() throws NotSupportedBrowserException {
         driver = WebDriverFactory.create();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @Test
     public void checkPartnerFormAndRegistrationPartnerFormTest() {
         driver.get(baseUrl);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/registration']"))).click();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(@class, 'btn-success')]"))).click();
+        driver.findElement(By.xpath("//a[@href='/registration']")).click();
+        driver.findElement(By.xpath("//button[contains(@class, 'btn-success')]")).click();
 
         List<WebElement> inputFields = driver.findElements(By.xpath("//input"));
         inputFields.get(0).sendKeys(RandomDataGenerator2.generateRandomEmail());
@@ -46,12 +43,11 @@ public class PartnerPageRegistrationTest {
         inputFields.get(8).sendKeys(RandomDataGenerator2.generateRandomString());
         inputFields.get(11).sendKeys(RandomDataGenerator2.generateRandomString());
 
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//form//div[3]/button"))).click();
+        driver.findElement(By.xpath("//form//div[3]/button")).click();
 
         driver.get(emailUrl);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Подтверждение регистрации']//ancestor::span"))).click();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@href, 'https://skarb.foxminded.ua/registration/confirm')]"))).click();
+        driver.findElement(By.xpath("//*[text()='Подтверждение регистрации']//ancestor::span")).click();
+        driver.findElement(By.xpath("//a[contains(@href, 'https://skarb.foxminded.ua/registration/confirm')]")).click();
 
         Set<String> handles = driver.getWindowHandles();
         for (String handle : handles) {
