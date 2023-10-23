@@ -12,21 +12,16 @@ import utils.RandomDataGenerator;
 import utils.RandomStringGenerator;
 
 public class PartnerPageTest {
-
     private WebDriver driver;
     private String baseUrl = "https://skarb.foxminded.ua/";
 
-
     @BeforeTest
     public void setUp() throws NotSupportedBrowserException {
-
         driver = WebDriverFactory.create();
         driver.manage().window().maximize();
-
     }
 
     @Test
-
     public void checkPartnerFormTest() {
         driver.get(baseUrl);
         WebElement registrationLink = driver.findElement(By.xpath("//a[@href='/registration']"));
