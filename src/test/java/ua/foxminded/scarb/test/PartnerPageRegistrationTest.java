@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
 import ua.foxminded.scarb.helpers.WebDriverFactory;
-import utils.RandomDataGenerator2;
+import utils.RandomStringGenerator;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
@@ -17,14 +17,14 @@ public class PartnerPageRegistrationTest {
     private WebDriver driver;
     private String baseUrl = "https://skarb.foxminded.ua/";
     private String emailUrl = "https://skarbmail.foxminded.ua/";
-    private String registrationUrl = "https://skarb.foxminded.ua/registration/confirm";
-    private String passwordValue = RandomDataGenerator2.generateStrongPassword();
+    private String registrationUrl = baseUrl + "registration/confirm";
+    private String passwordValue = RandomStringGenerator.generateStrongPassword();
 
     @BeforeMethod
     public void setUp() throws NotSupportedBrowserException {
         driver = WebDriverFactory.create();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
     }
 
     @Test
@@ -34,14 +34,14 @@ public class PartnerPageRegistrationTest {
         driver.findElement(By.xpath("//button[contains(@class, 'btn-success')]")).click();
 
         List<WebElement> inputFields = driver.findElements(By.xpath("//input"));
-        inputFields.get(0).sendKeys(RandomDataGenerator2.generateRandomEmail());
-        inputFields.get(2).sendKeys(RandomDataGenerator2.generateRandomString());
-        inputFields.get(3).sendKeys(RandomDataGenerator2.generateRandomString());
+        inputFields.get(0).sendKeys(RandomStringGenerator.generateRandomEmail());
+        inputFields.get(2).sendKeys(RandomStringGenerator.generateRandomString());
+        inputFields.get(3).sendKeys(RandomStringGenerator.generateRandomString());
         inputFields.get(5).click();
         inputFields.get(6).sendKeys(passwordValue);
         inputFields.get(7).sendKeys(passwordValue);
-        inputFields.get(8).sendKeys(RandomDataGenerator2.generateRandomString());
-        inputFields.get(11).sendKeys(RandomDataGenerator2.generateRandomString());
+        inputFields.get(8).sendKeys(RandomStringGenerator.generateRandomString());
+        inputFields.get(11).sendKeys(RandomStringGenerator.generateRandomString());
 
         driver.findElement(By.xpath("//form//div[3]/button")).click();
 
