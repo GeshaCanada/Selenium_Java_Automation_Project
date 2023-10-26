@@ -53,11 +53,11 @@ public class VolunteerPageTest3 {
 
         Assertions.assertAll("Password and confirm password fields",
                 () -> {
-                    if (inputFields.size() <= 12) {
+                    if (passwordValue.length() <= 12) {
                         inputFields.get(4).sendKeys(passwordValue);
                         inputFields.get(5).sendKeys(passwordValue);
                     } else {
-                        Assertions.fail("Insufficient input fields found");
+                        Assertions.fail("Password length should not exceed 12 characters");
                     }
                 },
                 () -> {
