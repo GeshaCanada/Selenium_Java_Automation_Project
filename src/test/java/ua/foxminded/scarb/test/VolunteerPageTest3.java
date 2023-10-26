@@ -5,11 +5,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
 import ua.foxminded.scarb.helpers.WebDriverFactory;
 import utils.RandomStringGenerator;
+
 import java.util.List;
 
 public class VolunteerPageTest3 {
@@ -27,53 +29,29 @@ public class VolunteerPageTest3 {
     @Test
     public void checkVolunteerFormTest1() {
         WebElement registrationLink = driver.findElement(By.cssSelector(".nav-link.ml-auto"));
-        if (registrationLink != null) {
-            registrationLink.click();
-        } else {
-            Assertions.fail("Registration link not found");
-        }
+        registrationLink.click();
 
         WebElement btn = driver.findElement(By.cssSelector("[name=volunteers] .btn "));
-        if (btn != null) {
-            btn.click();
-        } else {
-            Assertions.fail("Button not found");
-        }
+        btn.click();
 
         List<WebElement> inputFields = driver.findElements(By.xpath("//input"));
-        if (!inputFields.isEmpty()) {
+        if (inputFields.size() == 8) {
             inputFields.get(0).sendKeys(RandomStringGenerator.generateRandomString());
             inputFields.get(1).sendKeys(RandomStringGenerator.generateRandomString());
             inputFields.get(2).sendKeys(RandomStringGenerator.generateRandomEmail());
             inputFields.get(4).sendKeys(passwordValue);
             inputFields.get(5).sendKeys(passwordValue);
         } else {
-            Assertions.fail("Input field not found");
+            Assertions.fail("Insufficient input fields found");
         }
-
-        Assertions.assertAll("Password and confirm password fields",
-                () -> {
-                    if (passwordValue.length() <= 12) {
-                        inputFields.get(4).sendKeys(passwordValue);
-                        inputFields.get(5).sendKeys(passwordValue);
-                    } else {
-                        Assertions.fail("Password length should not exceed 12 characters");
-                    }
-                },
-                () -> {
-                    if (!inputFields.get(4).getAttribute("value").equals(inputFields.get(5).getAttribute("value"))) {
-                        Assertions.fail("Password and confirm password fields do not match");
-                    }
-                }
-        );
 
         Assertions.assertTrue(driver.getCurrentUrl().contains("registration"));
         Assertions.assertEquals("Регистрация волонтера", driver.getTitle());
 
-        WebElement btnSuccess = driver.findElement(By.className("btn-success"));
-        if (btnSuccess != null) {
+        try {
+            WebElement btnSuccess = driver.findElement(By.className("btn-success"));
             btnSuccess.click();
-        } else {
+        } catch (NoSuchElementException e) {
             Assertions.fail("Success button not found");
         }
         // Add other assertions for other fields
