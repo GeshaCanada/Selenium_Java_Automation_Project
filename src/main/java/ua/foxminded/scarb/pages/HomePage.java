@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     @FindBy(css = "h4.text-dark-red")
     private WebElement title;
@@ -23,15 +23,15 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    public WebElement getTitle() {
-        return title;
+    public String getTitleText() {
+        return title.getText();
     }
 
-    public WebElement getContactUs() {
-        return contactUs;
+    public void clickContactUs() {
+        contactUs.click();
     }
 
-    public WebElement getPage() {
-        return page;
+    public String getPageText() {
+        return page.getText();
     }
 }

@@ -11,14 +11,13 @@ public class ScarbHomePageTest extends TestSetup {
     @Test
     public void getToHomePageTest() {
         pageFactory = new HomePage(driver);
-        Assert.assertEquals(pageFactory.getTitle().getText(), "SKARB NGO");
+        Assert.assertEquals(pageFactory.getTitleText(), "SKARB NGO");
     }
 
     @Test
     public void checkContactUsTest() {
         pageFactory = new HomePage(driver);
-        pageFactory.getContactUs().click();
-        Assert.assertEquals(pageFactory.getPage().getText(), "Свяжитесь с нами");
+        pageFactory.clickContactUs();
+        Assert.assertEquals(pageFactory.getPageText(), "Свяжитесь с нами");
     }
-
 }
