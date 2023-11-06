@@ -2,10 +2,9 @@ package ua.foxminded.scarb.test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.foxminded.scarb.helpers.TestSetup;
 import ua.foxminded.scarb.pages.HomePage;
 
-public class ScarbHomePageTest extends TestSetup {
+public class ScarbHomePageTest extends BaseTest {
     private HomePage pageFactory;
 
     @Test

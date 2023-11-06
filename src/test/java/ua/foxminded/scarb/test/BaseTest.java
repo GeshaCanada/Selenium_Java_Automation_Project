@@ -1,10 +1,12 @@
-package ua.foxminded.scarb.helpers;
+package ua.foxminded.scarb.test;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
+import ua.foxminded.scarb.helpers.WebDriverFactory;
 
-public class TestSetup {
+public class BaseTest {
     protected WebDriver driver;
     protected String baseUrl = "https://skarb.foxminded.ua/";
 
