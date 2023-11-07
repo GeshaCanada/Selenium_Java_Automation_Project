@@ -1,8 +1,7 @@
 package ua.foxminded.scarb.test;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
 import ua.foxminded.scarb.helpers.WebDriverFactory;
 

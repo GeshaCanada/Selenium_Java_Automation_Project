@@ -1,25 +1,12 @@
 package ua.foxminded.scarb.test;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
-import ua.foxminded.scarb.helpers.WebDriverFactory;
 import utils.RandomDataGenerator;
 import utils.RandomStringGenerator;
 
-public class PartnerPageTest {
-    private WebDriver driver;
-    private String baseUrl = "https://skarb.foxminded.ua/";
-
-    @BeforeTest
-    public void setUp() throws NotSupportedBrowserException {
-        driver = WebDriverFactory.create();
-        driver.manage().window().maximize();
-    }
+public class PartnerPageTest extends BaseTest {
 
     @Test
     public void checkPartnerFormTest() {
@@ -63,10 +50,5 @@ public class PartnerPageTest {
     }
 
 
-    @AfterTest
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+
 }
