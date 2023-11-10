@@ -24,7 +24,7 @@ public class SuccessStoryPageTest extends BaseTest {
     public void checkSearchInputTest() {
         pageFactory = new SuccessStoryPage(driver);
         pageFactory.clickPageTitle();
-        pageFactory.getInput();
+        pageFactory.setSearchQuery("Web");
     }
 
     @Test

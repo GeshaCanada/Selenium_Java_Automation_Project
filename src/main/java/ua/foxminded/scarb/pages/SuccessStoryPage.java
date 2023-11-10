@@ -1,7 +1,5 @@
 package ua.foxminded.scarb.pages;
 
-
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,11 +31,9 @@ public class SuccessStoryPage extends BasePage {
         title.click();
     }
 
-    public WebElement getInput() {
-        String searchQuery = "Web";
-        searchInput.sendKeys(searchQuery);
+    public void setSearchQuery(String query) {
+        searchInput.sendKeys(query);
         searchInput.sendKeys(Keys.RETURN);
-        return searchInput;
     }
 
     public boolean showMoreLinkDisplayed() {
