@@ -3,6 +3,7 @@ package ua.foxminded.scarb.pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.testng.asserts.SoftAssert;
+import org.junit.jupiter.api.Assertions;
 import utils.RandomStringGenerator;
 import java.util.List;
 import java.util.Set;
@@ -70,11 +71,11 @@ public class PartnerPage extends BasePage {
         for (String handle : handles) {
             driver.switchTo().window(handle);
             if (driver.getCurrentUrl().equals(registrationUrl)) {
+                Assertions.assertNotNull(confirmationMessage, "Email confirmation message not found");
                 return confirmationMessage.getText();
             }
         }
-        return null;  // или бросить исключение, если окно с подтверждением не найдено
+        throw new AssertionError("Window with registration URL not found");
     }
-
 
 }
