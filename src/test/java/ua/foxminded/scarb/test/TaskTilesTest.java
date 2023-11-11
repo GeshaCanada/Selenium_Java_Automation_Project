@@ -1,25 +1,11 @@
 package ua.foxminded.scarb.test;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
-import ua.foxminded.scarb.helpers.WebDriverFactory;
 import java.util.List;
 
-public class TaskTilesTest {
-    private WebDriver driver;
-    private String baseUrl = "https://skarb.foxminded.ua/";
-
-    @BeforeTest
-    public void setUp() throws NotSupportedBrowserException {
-        driver = WebDriverFactory.create();
-        driver.manage().window().maximize();
-        driver.get(baseUrl + "tasks/partner/search/criteria");
-    }
+public class TaskTilesTest extends BaseTest {
 
     @Test
     public void printTasksAndCalculateTotalNumber() {
@@ -37,14 +23,4 @@ public class TaskTilesTest {
         System.out.println("Calculate the overall number of tasks: " + taskTiles.size());
     }
 
-
-
-
-
-    @AfterTest
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 }

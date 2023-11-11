@@ -1,15 +1,16 @@
 package ua.foxminded.scarb.pages;
 
-import org.openqa.selenium.By;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.asserts.SoftAssert;
 import utils.RandomStringGenerator;
-import org.junit.jupiter.api.Assertions;
+
 import java.util.Arrays;
 import java.util.List;
+
 
 public class VolunteerPage extends BasePage {
 
@@ -17,7 +18,10 @@ public class VolunteerPage extends BasePage {
     private WebElement registrationLink;
 
     @FindBy(css = ("[name=volunteers] .btn "))
-    private WebElement button;
+    private WebElement buttonVolunteers;
+
+    @FindBy(className = ("btn-success"))
+    private WebElement buttonSuccess;
 
     @FindBy(id = ("firstName"))
     private WebElement field1;
@@ -28,15 +32,15 @@ public class VolunteerPage extends BasePage {
     @FindBy(id = ("email"))
     private WebElement field3;
 
-    @FindBy(id = ("password") )
+    @FindBy(id = ("password"))
     private WebElement field4;
 
     @FindBy(id = ("confirmPassword"))
     private WebElement field5;
 
-    private String passwordValue = RandomStringGenerator.generateStrongPassword();
 
-    public VolunteerPage (WebDriver driver) {
+
+    public VolunteerPage(WebDriver driver) {
         super(driver);
     }
 
@@ -45,13 +49,13 @@ public class VolunteerPage extends BasePage {
     }
 
     public void buttonClick() {
-        button.click();
+        buttonVolunteers.click();
     }
 
     public void fillInputFields() {
         SoftAssert softAssert = new SoftAssert();
         List<WebElement> inputFields = Arrays.asList(field1, field2, field3, field4, field5);
-
+        String passwordValue = RandomStringGenerator.generateStrongPassword();
         if (inputFields.size() == 5) {
             inputFields.get(0).sendKeys(RandomStringGenerator.generateRandomString());
             inputFields.get(1).sendKeys(RandomStringGenerator.generateRandomString());
@@ -74,8 +78,7 @@ public class VolunteerPage extends BasePage {
 
     public void assertSuccessButton() {
         try {
-            WebElement btnSuccess = driver.findElement(By.className("btn-success"));
-            btnSuccess.click();
+            buttonSuccess.click();
         } catch (NoSuchElementException e) {
             Assertions.fail("Success button not found");
         }
