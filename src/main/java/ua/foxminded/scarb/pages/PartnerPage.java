@@ -1,10 +1,13 @@
 package ua.foxminded.scarb.pages;
 
-import org.openqa.selenium.*;
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.asserts.SoftAssert;
-import org.junit.jupiter.api.Assertions;
 import utils.RandomStringGenerator;
+
 import java.util.List;
 import java.util.Set;
 
@@ -75,7 +78,7 @@ public class PartnerPage extends BasePage {
                 return confirmationMessage.getText();
             }
         }
-        throw new AssertionError("Window with registration URL not found");
-    }
+        return null;
 
+    }
 }
