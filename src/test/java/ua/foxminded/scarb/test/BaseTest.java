@@ -1,6 +1,5 @@
 package ua.foxminded.scarb.test;
 
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
@@ -8,10 +7,9 @@ import ua.foxminded.scarb.helpers.WebDriverFactory;
 import java.time.Duration;
 
 public class BaseTest {
+
     protected WebDriver driver;
     protected String baseUrl = "https://skarb.foxminded.ua/";
-    //protected String emailUrl = "https://skarbmail.foxminded.ua/";
-
 
         @BeforeTest
         public void setUp () throws NotSupportedBrowserException {
@@ -22,10 +20,10 @@ public class BaseTest {
 
     }
 
-//    @AfterTest
-//    public void tearDown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @AfterTest
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
