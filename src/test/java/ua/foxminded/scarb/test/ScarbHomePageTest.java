@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.foxminded.scarb.pages.HomePage;
 
-public class ScarbHomePageTest extends BaseTestNG {
+public class ScarbHomePageTest extends BaseTestNG  {
     private HomePage pageFactory;
 
     @Test

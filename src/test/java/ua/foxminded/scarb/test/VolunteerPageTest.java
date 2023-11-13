@@ -12,7 +12,7 @@ public class VolunteerPageTest extends BaseTestJUnit {
         pageVolunteer = new VolunteerPage(driver);
         pageVolunteer.registrationLinkClick();
         pageVolunteer.buttonClick();
-        pageVolunteer.fillInputFields();
+        pageVolunteer.fillRegistrationForm();
         pageVolunteer.assertRegistrationPage();
         pageVolunteer.assertSuccessButton();
         pageVolunteer.assertSuccessPage();

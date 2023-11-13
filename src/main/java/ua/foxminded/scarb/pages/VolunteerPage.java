@@ -52,7 +52,7 @@ public class VolunteerPage extends BasePage {
         buttonVolunteers.click();
     }
 
-    public void fillInputFields() {
+    public void fillRegistrationForm() {
         SoftAssert softAssert = new SoftAssert();
         List<WebElement> inputFields = Arrays.asList(field1, field2, field3, field4, field5);
         String passwordValue = RandomStringGenerator.generateStrongPassword();

@@ -14,8 +14,7 @@ import java.util.Set;
 
 public class PartnerPage extends BasePage {
 
-   private String emailUrl = "https://skarbmail.foxminded.ua/";
-   private String registrationUrl = "https://skarb.foxminded.ua/registration/confirm";
+
 
     @FindBy(xpath= ("//a[@href='/registration']"))
     private WebElement link;
@@ -34,16 +33,17 @@ public class PartnerPage extends BasePage {
 
     @FindBy(xpath= ("//*[contains(text(), 'Ваш email подтверждено')]"))
     private WebElement confirmationMessage;
+
     public PartnerPage(WebDriver driver) {
         super(driver);
     }
 
-    public void navigationPartnerPage() {
+    public void linkPartnerPage() {
        link.click();
        buttonSuccess.click();
     }
 
-    public void setRegistrationField() {
+    public void setRegistrationForm() {
         SoftAssert softAssert = new SoftAssert();
         String passwordValue = RandomStringGenerator.generateStrongPassword();
         List<WebElement> inputFields = driver.findElements(By.xpath("//input"));
@@ -63,7 +63,7 @@ public class PartnerPage extends BasePage {
         buttonRegistration.click();
     }
 
-    public void confirmationRegistration() {
+    public void confirmRegistration() {
         driver.get(emailUrl);
         registrationField.click();
         registrationLink.click();

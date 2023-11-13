@@ -6,13 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.Keys;
 public class SuccessStoryPage extends BasePage {
 
-    @FindBy(partialLinkText = ("Истории успеха")) //
+    @FindBy(partialLinkText = ("Истории успеха"))
     private WebElement title;
 
     @FindBy(css = ("input[id='storyNameSearchFilter']"))
     private WebElement searchInput;
 
-    @FindBy(partialLinkText = ("Показать больше")) //
+    @FindBy(partialLinkText = ("Показать больше"))
     private WebElement link;
 
     @FindBy(css = "h4.text-dark-red")

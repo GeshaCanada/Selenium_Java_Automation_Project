@@ -8,9 +8,9 @@ public class PartnerPageRegistrationTest extends BaseTestNG {
     @Test
     public void checkPartnerFormAndRegistrationPartnerFormTest() {
         pagePartner = new PartnerPage(driver);
-        pagePartner.navigationPartnerPage();
-        pagePartner.setRegistrationField();
-        pagePartner.confirmationRegistration();
+        pagePartner.linkPartnerPage();
+        pagePartner.setRegistrationForm();
+        pagePartner.confirmRegistration();
         pagePartner.checkEmailConfirmationMessage();
 
     }
