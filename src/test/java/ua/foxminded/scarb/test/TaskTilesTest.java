@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import java.util.List;
 
-public class TaskTilesTest extends BaseTest {
+public class TaskTilesTest extends BaseTestNG {
 
     @Test
     public void printTasksAndCalculateTotalNumber() {

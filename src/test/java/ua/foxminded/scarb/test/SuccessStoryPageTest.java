@@ -4,45 +4,45 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.foxminded.scarb.pages.SuccessStoryPage;
 
-public class SuccessStoryPageTest extends BaseTest {
+public class SuccessStoryPageTest extends BaseTestNG {
 
-    private SuccessStoryPage pageFactory;
+    private SuccessStoryPage pageSuccessStory;
 
     @Test
     public void checkSuccessStoryPageTextTest() {
-        pageFactory = new SuccessStoryPage(driver);
-        Assert.assertTrue(pageFactory.getTitle());
+        pageSuccessStory = new SuccessStoryPage(driver);
+        Assert.assertTrue(pageSuccessStory.getTitle());
     }
 
     @Test
     public void checkNavigationToSuccessStoryPageTest() {
-        pageFactory = new SuccessStoryPage(driver);
-        pageFactory.clickPageTitle();
+        pageSuccessStory = new SuccessStoryPage(driver);
+        pageSuccessStory.clickPageTitle();
     }
 
     @Test
     public void checkSearchInputTest() {
-        pageFactory = new SuccessStoryPage(driver);
-        pageFactory.clickPageTitle();
-        pageFactory.setSearchQuery("Web");
+        pageSuccessStory = new SuccessStoryPage(driver);
+        pageSuccessStory.clickPageTitle();
+        pageSuccessStory.setSearchQuery("Web");
     }
 
     @Test
     public void showMoreSuccessStoriesFunctionTest() {
-        pageFactory = new SuccessStoryPage(driver);
-        pageFactory.clickPageTitle();
-        Assert.assertTrue(pageFactory.showMoreLinkDisplayed(), "Ссылка 'Показать больше' не видима.");  // Проверяем, что ссылка видима и активна
-        Assert.assertTrue(pageFactory.showMoreLinkEnabled(), "Ссылка 'Показать больше' не активна.");
-        pageFactory.showMoreLinkClick();
+        pageSuccessStory = new SuccessStoryPage(driver);
+        pageSuccessStory.clickPageTitle();
+        Assert.assertTrue(pageSuccessStory.showMoreLinkDisplayed(), "Ссылка 'Показать больше' не видима.");  // Проверяем, что ссылка видима и активна
+        Assert.assertTrue(pageSuccessStory.showMoreLinkEnabled(), "Ссылка 'Показать больше' не активна.");
+        pageSuccessStory.showMoreLinkClick();
     }
 
     @Test
     public void checkNavigateHomePageTest() {
 
-        pageFactory = new SuccessStoryPage(driver);
-        pageFactory.clickPageTitle();
-        pageFactory.getHomeLink();
-        pageFactory.homeLinkClick();
+        pageSuccessStory = new SuccessStoryPage(driver);
+        pageSuccessStory.clickPageTitle();
+        pageSuccessStory.getHomeLink();
+        pageSuccessStory.homeLinkClick();
         String currentUrl = driver.getCurrentUrl();
         String expectedUrl = "https://skarb.foxminded.ua/";
         Assert.assertEquals(currentUrl, expectedUrl, "После нажатия 'SKARB NGO' не была открыта ожидаемая страница.");

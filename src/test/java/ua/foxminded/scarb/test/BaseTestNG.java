@@ -1,23 +1,26 @@
 package ua.foxminded.scarb.test;
 
-import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.*;
 import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
 import ua.foxminded.scarb.helpers.WebDriverFactory;
+import java.time.Duration;
 
-public class BaseTest2 {
+public class BaseTestNG {
 
     protected WebDriver driver;
     protected String baseUrl = "https://skarb.foxminded.ua/";
 
-    @BeforeEach
-    public void setUp() throws NotSupportedBrowserException {
+        @BeforeTest
+        public void setUp () throws NotSupportedBrowserException {
         driver = WebDriverFactory.create();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
         driver.get(baseUrl);
+
     }
 
-    @AfterEach
+    @AfterTest
     public void tearDown() {
         if (driver != null) {
             driver.quit();

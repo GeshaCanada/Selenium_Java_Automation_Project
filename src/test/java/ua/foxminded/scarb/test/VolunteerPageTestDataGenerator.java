@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import utils.RandomDataGenerator;
 
-public class VolunteerPageTest1 extends BaseTest {
+public class VolunteerPageTestDataGenerator extends BaseTestNG {
 
     @Test
-    public void checkVolunteerFormTest1() {
+    public void checkVolunteerFormTest() {
         WebElement registrationLink = driver.findElement(By.cssSelector(".nav-link.ml-auto"));
         registrationLink.click();
         WebElement btn = driver.findElement(By.cssSelector("[name=volunteers] .btn "));

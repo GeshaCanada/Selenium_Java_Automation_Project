@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import utils.RandomDataGenerator;
 import utils.RandomStringGenerator;
 
-public class PartnerPageTest extends BaseTest {
+public class PartnerPageTestDataGenerator extends BaseTestNG {
 
     @Test
     public void checkPartnerFormTest() {

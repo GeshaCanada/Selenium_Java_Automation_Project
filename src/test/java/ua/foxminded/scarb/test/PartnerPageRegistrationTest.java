@@ -2,16 +2,16 @@ package ua.foxminded.scarb.test;
 import org.testng.annotations.*;
 import ua.foxminded.scarb.pages.PartnerPage;
 
-public class PartnerPageRegistrationTest extends BaseTest {
-    private PartnerPage pageFactory;
+public class PartnerPageRegistrationTest extends BaseTestNG {
+    private PartnerPage pagePartner;
 
     @Test
     public void checkPartnerFormAndRegistrationPartnerFormTest() {
-        pageFactory = new PartnerPage(driver);
-        pageFactory.navigationPartnerPage();
-        pageFactory.setRegistrationField();
-        pageFactory.confirmationRegistration();
-        pageFactory.checkEmailConfirmationMessage();
+        pagePartner = new PartnerPage(driver);
+        pagePartner.navigationPartnerPage();
+        pagePartner.setRegistrationField();
+        pagePartner.confirmationRegistration();
+        pagePartner.checkEmailConfirmationMessage();
 
     }
 }

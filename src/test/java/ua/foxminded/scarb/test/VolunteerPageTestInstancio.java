@@ -9,11 +9,11 @@ import utils.RandomDataGenerator;
 import static org.instancio.Select.field;
 
 
-public class VolunteerPageTest2 extends BaseTest{
+public class VolunteerPageTestInstancio extends BaseTestNG {
 
 
     @Test
-    public void checkVolunteerFormTest2() {
+    public void checkVolunteerFormTest() {
         WebElement registrationLink = driver.findElement(By.cssSelector(".nav-link.ml-auto"));
         registrationLink.click();
         WebElement btn = driver.findElement(By.cssSelector("[name=volunteers] .btn "));

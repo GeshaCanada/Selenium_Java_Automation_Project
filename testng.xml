@@ -7,27 +7,27 @@
     </test>
     <test name="Test2">
         <classes>
-            <class name="ua.foxminded.scarb.test.ScarbHomeButtonTest"/>
+            <class name="ua.foxminded.scarb.test.SuccessStoryPageTest"/>
         </classes>
     </test>
     <test name="Test3">
         <classes>
-            <class name="ua.foxminded.scarb.test.SuccessStoryPageTest"/>
+            <class name="ua.foxminded.scarb.test.TaskPageTest"/>
         </classes>
     </test>
     <test name="Test4">
         <classes>
-            <class name="ua.foxminded.scarb.test.VolunteerPageTest1"/>
+            <class name="ua.foxminded.scarb.test.VolunteerPageTestInstancio"/>
         </classes>
     </test>
     <test name="Test5">
         <classes>
-            <class name="ua.foxminded.scarb.test.VolunteerPageTest2"/>
+            <class name="ua.foxminded.scarb.test.VolunteerPageTest"/>
         </classes>
     </test>
     <test name="Test6">
         <classes>
-            <class name="ua.foxminded.scarb.test.PartnerPageTest"/>
+            <class name="ua.foxminded.scarb.test.PartnerPageTestDataGenerator"/>
         </classes>
     </test>
     <test name="Test7">

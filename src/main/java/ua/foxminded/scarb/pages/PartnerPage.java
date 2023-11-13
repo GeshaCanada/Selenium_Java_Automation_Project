@@ -79,6 +79,5 @@ public class PartnerPage extends BasePage {
             }
         }
         return null;
-
     }
 }

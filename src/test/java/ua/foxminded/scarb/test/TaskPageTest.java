@@ -4,24 +4,23 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.foxminded.scarb.pages.TaskPage;
 
+public class TaskPageTest extends BaseTestNG {
 
-public class TaskPageTest extends BaseTest {
-
-    private TaskPage pageFactory;
+    private TaskPage pageTask;
 
     @Test
     public void getButtonTextTest() {
 
-        pageFactory = new TaskPage(driver);
-        Assert.assertEquals(pageFactory.getButtonText(), "Смотреть задачи");
+        pageTask = new TaskPage(driver);
+        Assert.assertEquals(pageTask.getButtonText(), "Смотреть задачи");
     }
 
     @Test
     public void taskButtonActionTest() {
 
-        pageFactory = new TaskPage(driver);
-        pageFactory.clickTaskButton();
-        Assert.assertEquals(pageFactory.getTitleTaskText(), "Поиск задач");
+        pageTask = new TaskPage(driver);
+        pageTask.clickTaskButton();
+        Assert.assertEquals(pageTask.getTitleTaskText(), "Поиск задач");
     }
 
 }
