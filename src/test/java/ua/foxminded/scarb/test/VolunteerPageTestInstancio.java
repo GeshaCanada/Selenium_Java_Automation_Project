@@ -1,39 +1,19 @@
 package ua.foxminded.scarb.test;
 
-
 import org.instancio.Instancio;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ua.foxminded.scarb.Volunteer;
-import ua.foxminded.scarb.helpers.NotSupportedBrowserException;
-import ua.foxminded.scarb.helpers.WebDriverFactory;
 import utils.RandomDataGenerator;
-
 import static org.instancio.Select.field;
 
 
-public class VolunteerPageTest2 {
+public class VolunteerPageTestInstancio extends BaseTestNG {
 
-    private WebDriver driver;
-    private String baseUrl = "https://skarb.foxminded.ua/";
-
-
-    @BeforeTest
-    public void setUp() throws NotSupportedBrowserException {
-
-        // просим WebDriverFactory создать driver
-        driver = WebDriverFactory.create();
-        driver.manage().window().maximize();
-        driver.get(baseUrl);
-
-    }
 
     @Test
-    public void checkVolunteerFormTest2() {
+    public void checkVolunteerFormTest() {
         WebElement registrationLink = driver.findElement(By.cssSelector(".nav-link.ml-auto"));
         registrationLink.click();
         WebElement btn = driver.findElement(By.cssSelector("[name=volunteers] .btn "));
@@ -69,12 +49,6 @@ public class VolunteerPageTest2 {
         btnSuccess.click();
     }
 
-    @AfterTest
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 }
 
 
