@@ -38,21 +38,17 @@ public class VolunteerPage extends BasePage {
     @FindBy(id = ("confirmPassword"))
     private WebElement field5;
 
-
-
     public VolunteerPage(WebDriver driver) {
         super(driver);
     }
 
-    public void registrationLinkClick() {
+    public VolunteerPage linkToVolunteerPage() {
         registrationLink.click();
-    }
-
-    public void buttonClick() {
         buttonVolunteers.click();
+        return this;
     }
 
-    public void fillRegistrationForm() {
+    public VolunteerPage fillRegistrationForm() {
         SoftAssert softAssert = new SoftAssert();
         List<WebElement> inputFields = Arrays.asList(field1, field2, field3, field4, field5);
         String passwordValue = RandomStringGenerator.generateStrongPassword();
@@ -67,28 +63,32 @@ public class VolunteerPage extends BasePage {
         }
 
         softAssert.assertAll();
+        return this;
     }
 
-    public void assertRegistrationPage() {
+    public VolunteerPage assertRegistrationPage() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(driver.getCurrentUrl().contains("registration"), "URL does not contain 'registration'");
         softAssert.assertEquals(driver.getTitle(), "Регистрация волонтера", "Title is not 'Регистрация волонтера'");
         softAssert.assertAll();
+        return this;
     }
 
-    public void assertSuccessButton() {
+    public VolunteerPage assertSuccessButton() {
         try {
             buttonSuccess.click();
         } catch (NoSuchElementException e) {
             Assertions.fail("Success button not found");
         }
+        return this;
     }
 
-    public void assertSuccessPage() {
+    public VolunteerPage assertSuccessPage() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(driver.getCurrentUrl().contains("success"), "URL does not contain 'success'");
         softAssert.assertEquals(driver.getTitle(), "Регистрация", "Title is not 'Регистрация'");
         softAssert.assertAll();
+        return this;
     }
 
 }

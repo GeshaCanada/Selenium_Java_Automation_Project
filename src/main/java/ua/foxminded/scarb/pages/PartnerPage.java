@@ -14,36 +14,35 @@ import java.util.Set;
 
 public class PartnerPage extends BasePage {
 
-
-
-    @FindBy(xpath= ("//a[@href='/registration']"))
+    @FindBy(xpath = ("//a[@href='/registration']"))
     private WebElement link;
 
-    @FindBy(xpath= ("//button[contains(@class, 'btn-success')]"))
+    @FindBy(xpath = ("//button[contains(@class, 'btn-success')]"))
     private WebElement buttonSuccess;
 
-    @FindBy(xpath= ("//form//div[3]/button"))
+    @FindBy(xpath = ("//form//div[3]/button"))
     private WebElement buttonRegistration;
 
-    @FindBy(xpath= ("//*[text()='Подтверждение регистрации']//ancestor::span"))
+    @FindBy(xpath = ("//*[text()='Подтверждение регистрации']//ancestor::span"))
     private WebElement registrationField;
 
-    @FindBy(xpath= ("//a[contains(@href, 'https://skarb.foxminded.ua/registration/confirm')]"))
+    @FindBy(xpath = ("//a[contains(@href, 'https://skarb.foxminded.ua/registration/confirm')]"))
     private WebElement registrationLink;
 
-    @FindBy(xpath= ("//*[contains(text(), 'Ваш email подтверждено')]"))
+    @FindBy(xpath = ("//*[contains(text(), 'Ваш email подтверждено')]"))
     private WebElement confirmationMessage;
 
     public PartnerPage(WebDriver driver) {
         super(driver);
     }
 
-    public void linkPartnerPage() {
-       link.click();
-       buttonSuccess.click();
+    public PartnerPage linkToPartnerPage() {
+        link.click();
+        buttonSuccess.click();
+        return this;
     }
 
-    public void setRegistrationForm() {
+    public PartnerPage setRegistrationForm() {
         SoftAssert softAssert = new SoftAssert();
         String passwordValue = RandomStringGenerator.generateStrongPassword();
         List<WebElement> inputFields = driver.findElements(By.xpath("//input"));
@@ -61,23 +60,27 @@ public class PartnerPage extends BasePage {
         }
         softAssert.assertAll();
         buttonRegistration.click();
+        return this;
     }
 
-    public void confirmRegistration() {
+    public PartnerPage confirmRegistration() {
         driver.get(emailUrl);
         registrationField.click();
         registrationLink.click();
+        return this;
     }
 
-    public String checkEmailConfirmationMessage() {
+    public PartnerPage checkEmailConfirmationMessage() {
         Set<String> handles = driver.getWindowHandles();
         for (String handle : handles) {
             driver.switchTo().window(handle);
             if (driver.getCurrentUrl().equals(registrationUrl)) {
-                Assertions.assertNotNull(confirmationMessage, "Email confirmation message not found");
-                return confirmationMessage.getText();
+                SoftAssert softAssert = new SoftAssert();
+                softAssert.assertNotNull(confirmationMessage, "Email confirmation message not found");
+                softAssert.assertAll();
+                return this;
             }
         }
-        return null;
+        return this;
     }
 }
