@@ -69,7 +69,7 @@ public class PartnerPage extends BasePage {
         return this;
     }
 
-    public PartnerPage checkEmailConfirmationMessage() {
+    public void checkEmailConfirmationMessage() {
         Set<String> handles = driver.getWindowHandles();
         for (String handle : handles) {
             driver.switchTo().window(handle);
@@ -77,9 +77,7 @@ public class PartnerPage extends BasePage {
                 SoftAssert softAssert = new SoftAssert();
                 softAssert.assertNotNull(confirmationMessage, "Email confirmation message not found");
                 softAssert.assertAll();
-                return this;
             }
         }
-        return this;
     }
 }

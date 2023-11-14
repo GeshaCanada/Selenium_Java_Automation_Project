@@ -83,12 +83,12 @@ public class VolunteerPage extends BasePage {
         return this;
     }
 
-    public VolunteerPage assertSuccessPage() {
+    public void assertSuccessPage() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(driver.getCurrentUrl().contains("success"), "URL does not contain 'success'");
         softAssert.assertEquals(driver.getTitle(), "Регистрация", "Title is not 'Регистрация'");
         softAssert.assertAll();
-        return this;
+
     }
 
 }
