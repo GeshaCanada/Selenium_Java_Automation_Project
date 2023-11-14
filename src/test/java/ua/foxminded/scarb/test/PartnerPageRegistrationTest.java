@@ -5,7 +5,7 @@ import ua.foxminded.scarb.pages.PartnerPage;
 public class PartnerPageRegistrationTest extends BaseTestNG {
     @Test
     public void checkPartnerFormAndRegistrationPartnerFormTest() {
-        (new PartnerPage(driver))
+        new PartnerPage(driver)
                 .linkToPartnerPage()
                 .setRegistrationForm()
                 .confirmRegistration()
