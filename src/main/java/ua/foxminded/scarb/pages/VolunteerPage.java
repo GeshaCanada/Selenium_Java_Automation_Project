@@ -1,18 +1,23 @@
 package ua.foxminded.scarb.pages;
 
-import org.junit.jupiter.api.Assertions;
+
+import org.testng.Assert;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.asserts.SoftAssert;
 import utils.RandomStringGenerator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.List;
 
 
 public class VolunteerPage extends BasePage {
+
+    private static final Logger LOGGER = LogManager.getLogger(VolunteerPage.class.getName());
 
     @FindBy(css = (".nav-link.ml-auto"))
     private WebElement registrationLink;
@@ -78,7 +83,7 @@ public class VolunteerPage extends BasePage {
         try {
             buttonSuccess.click();
         } catch (NoSuchElementException e) {
-            Assertions.fail("Success button not found");
+            Assert.fail("Success button not found");
         }
         return this;
     }
@@ -89,6 +94,26 @@ public class VolunteerPage extends BasePage {
         softAssert.assertEquals(driver.getTitle(), "Регистрация", "Title is not 'Регистрация'");
         softAssert.assertAll();
 
+    }
+
+    public VolunteerPage logNavigation() {
+        LOGGER.debug("Navigated to Volunteer Page");
+        return this;
+    }
+
+    public VolunteerPage logRegistrationForm() {
+        LOGGER.debug("Filled Volunteer Registration Form");
+        return this;
+    }
+
+    public VolunteerPage logSuccessButton() {
+        LOGGER.debug("Clicked on Success Button");
+        return this;
+    }
+
+    public VolunteerPage logSuccessPage() {
+        LOGGER.debug("Navigated to Success Page");
+        return this;
     }
 
 }

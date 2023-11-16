@@ -80,4 +80,5 @@ public class PartnerPage extends BasePage {
             }
         }
     }
+
 }
