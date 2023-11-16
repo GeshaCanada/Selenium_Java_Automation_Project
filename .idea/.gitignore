@@ -7,4 +7,4 @@
 /dataSources/
 /dataSources.local.xml
 # Ignore application log files
-/application-*.log
+application-*.log
