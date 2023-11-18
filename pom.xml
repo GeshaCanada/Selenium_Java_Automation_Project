@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version> <!-- Используйте актуальную версию библиотеки -->
+            <version>3.12.0</version>
         </dependency>
         <dependency>
             <groupId>com.bryghts.ftypes-string</groupId>
@@ -47,15 +47,16 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.8.0</version>
+            <version>5.8.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.8.0</version>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.8.2</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
