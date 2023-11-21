@@ -7,6 +7,8 @@ public class BasePage {
     protected String emailUrl = "https://skarbmail.foxminded.ua/";
     protected String registrationUrl = "https://skarb.foxminded.ua/registration/confirm";
 
+    protected String publishedTasks = "https://skarb.foxminded.ua/profile/organizations/tasks/published";
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

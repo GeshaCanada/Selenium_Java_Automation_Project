@@ -2,23 +2,23 @@ package ua.foxminded.scarb.test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.foxminded.scarb.pages.TaskPage;
+import ua.foxminded.scarb.pages.TaskOptionPage;
 
 public class TaskPageTest extends BaseTestNG {
 
-    private TaskPage pageTask;
+    private TaskOptionPage pageTask;
 
     @Test
     public void getButtonTextTest() {
 
-        pageTask = new TaskPage(driver);
+        pageTask = new TaskOptionPage(driver);
         Assert.assertEquals(pageTask.getButtonText(), "Смотреть задачи");
     }
 
     @Test
     public void taskButtonActionTest() {
 
-        pageTask = new TaskPage(driver);
+        pageTask = new TaskOptionPage(driver);
         pageTask.clickTaskButton();
         Assert.assertEquals(pageTask.getTitleTaskText(), "Поиск задач");
     }
