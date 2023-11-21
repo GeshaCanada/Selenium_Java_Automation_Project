@@ -85,10 +85,12 @@ public class TaskPage extends BasePage {
         return this;
     }
 
-    public TaskPage submitTask (){buttonSuccess.click();
-    return this;}
+    public TaskPage submitTask() {
+        buttonSuccess.click();
+        return this;
+    }
 
-    public TaskPage checkTasks(){
+    public TaskPage checkTasks() {
         profile.click();
         myTasks.click();
         driver.get(publishedTasks);
