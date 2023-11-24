@@ -12,27 +12,27 @@ public class User {
     private String position;
     private String lastname;
 
-    public static class UserBuilder {
+    public static class Builder {
         private String username;
         private String password;
         private String position;
         private String lastname;
 
-        public UserBuilder setUsername(String username) {
+        public Builder setUsername(String username) {
             this.username = username;
             return this;
         }
-        public UserBuilder setPassword(String password) {
+        public Builder setPassword(String password) {
             this.password = password;
             return this;
         }
 
-        public UserBuilder setPosition(String position) {
+        public Builder setPosition(String position) {
             this.position = position;
             return this;
         }
 
-        public UserBuilder setLastname(String lastname) {
+        public Builder setLastname(String lastname) {
             this.lastname = lastname;
             return this;
         }

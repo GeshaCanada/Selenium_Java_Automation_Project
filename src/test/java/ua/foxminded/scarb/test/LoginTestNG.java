@@ -13,7 +13,7 @@ public class LoginTestNG extends BaseTestNG {
     @Test
     public void userLoginTest() {
         LOGGER.info("Start checking userLoginTest");
-        User user = new User.UserBuilder()
+        User user = new User.Builder()
                 .setUsername("grostikov23@gmail.com")
                 .setPassword("Gg23021981Gg!")
                 .setPosition("Tester")
