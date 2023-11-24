@@ -62,7 +62,12 @@
             <version>1.18.22</version> <!-- Убедитесь, что это самая последняя версия -->
             <scope>provided</scope>
         </dependency>
-
+        <!-- SQL Server JDBC Driver -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>12.2.0.jre8</version> <!-- Use the appropriate version -->
+        </dependency>
         <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
