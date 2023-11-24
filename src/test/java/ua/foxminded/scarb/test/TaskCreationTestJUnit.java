@@ -11,7 +11,7 @@ import ua.foxminded.scarb.pages.TaskPage;
 
 import java.util.stream.Stream;
 
-public class TaskCreationTest extends BaseTestJUnit {
+public class TaskCreationTestJUnit extends BaseTestJUnit {
 
     @BeforeEach
     public void login() {
