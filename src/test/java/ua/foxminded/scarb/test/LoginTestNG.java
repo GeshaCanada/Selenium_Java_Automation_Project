@@ -14,10 +14,11 @@ public class LoginTestNG extends BaseTestNG {
     public void userLoginTest() {
         LOGGER.info("Start checking userLoginTest");
         User user = new User.Builder()
-                .setUsername("grostikov23@gmail.com")
+                .setEmail("grostikov23@gmail.com")
                 .setPassword("Gg23021981Gg!")
                 .setPosition("Tester")
                 .setLastname("Rostikov")
+                .setUsername("Gennadii")
                 .build();
 
         new LoginPage(driver)
