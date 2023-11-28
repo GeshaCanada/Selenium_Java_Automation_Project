@@ -27,6 +27,8 @@ public class LoginPage extends BasePage {
     @FindBy(id = ("positionInOrganization"))
     private WebElement position;
 
+    @FindBy(id = ("firstName"))
+    private WebElement firstname;
     @FindBy(id = ("lastName"))
     private WebElement lastname;
 
@@ -48,7 +50,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage populateLoginForm(User user) {
         loginLink.click();
-        login.sendKeys(user.getUsername());
+        login.sendKeys(user.getEmail());
         password.sendKeys(user.getPassword());
         button.click();
         return this;
@@ -56,9 +58,9 @@ public class LoginPage extends BasePage {
 
     public LoginPage verifyUserInfo(User user) {
         profile.click();
-        String actualPosition = position.getText();
+        String actualFirstName = firstname.getText();
         String actualLastName = lastname.getText();
-        actualPosition.equals(user.getPosition());
+        actualFirstName.equals(user.getUsername());
         actualLastName.equals(user.getLastname());
         return this;
     }

@@ -1,16 +1,18 @@
 package ua.foxminded.scarb.pages;
 
-
-import org.testng.Assert;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
+import ua.foxminded.scarb.User;
 import utils.RandomStringGenerator;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+import ua.foxminded.scarb.helpers.DatabaseSingleton;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -70,6 +72,30 @@ public class VolunteerPage extends BasePage {
         softAssert.assertAll();
         return this;
     }
+
+    public VolunteerPage fillVolunteerForm(User user) {
+        SoftAssert softAssert = new SoftAssert();
+        field1.sendKeys(user.getUsername());
+        field2.sendKeys(user.getLastname());
+        field3.sendKeys(user.getEmail());
+        field4.sendKeys(user.getPassword());
+        field5.sendKeys(user.getPassword());
+        softAssert.assertAll();
+        return this;
+    }
+
+    public void confirmRegistrationDB(String email) throws SQLException {
+        DatabaseSingleton databaseSingleton = DatabaseSingleton.getInstance();
+
+        String updateQuery = "UPDATE users SET email_confirmed = 1 WHERE email = ?";
+        try (PreparedStatement preparedStatement = databaseSingleton.getConnection().prepareStatement(updateQuery)) {
+            preparedStatement.setString(1, email);
+            preparedStatement.executeUpdate();
+        } finally {
+            databaseSingleton.closeConnection();
+        }
+    }
+
 
     public VolunteerPage assertRegistrationPage() {
         SoftAssert softAssert = new SoftAssert();

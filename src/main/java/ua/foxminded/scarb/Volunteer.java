@@ -17,7 +17,7 @@ public class Volunteer {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+     public String getLastName() {
         return lastName;
     }
 
