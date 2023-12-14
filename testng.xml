@@ -35,4 +35,9 @@
             <class name="ua.foxminded.scarb.test.PartnerPageRegistrationTest"/>
         </classes>
     </test>
+    <test name="Test8">
+        <classes>
+            <class name="ua.foxminded.scarb.test.LoginTestNG"/>
+        </classes>
+    </test>
 </suite>

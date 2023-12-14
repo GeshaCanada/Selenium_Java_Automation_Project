@@ -90,3 +90,50 @@ For open source projects, say how it is licensed.
 
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+
+## To run the tests and generate an Allure report, follow these steps:
+
+Ensure that you have the necessary dependencies by checking your project's pom.xml file.
+
+<dependencies>
+    <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-testng</artifactId>
+        <version>2.16.0</version> <!-- Check actual version at Maven Central -->
+    </dependency>
+</dependencies>
+
+Configure the Allure Maven plugin in the pom.xml file.
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-maven</artifactId>
+            <version>2.10.0</version> 
+            <configuration>
+                <reportVersion>2.13.8</reportVersion> <!-- Check actual version at Maven Central -->
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+### Run the tests using Maven: mvn clean test (bash) 
+
+### To run only a specific test in your project using Maven and Allure, 
+
+you can use the following command in the terminal (bash):
+
+mvn clean test  (executes the Maven project, running all tests).
+
+mvn clean test -test=ExampleTest (executes the Maven project, running specific tests)
+
+### After running this command, you can view the Allure report for the executed test using the command:
+
+Generate the Allure report: allure serve allure-results (bash)
+
+This command will open the Allure report in your default web browser. 
+
+Make sure you have Allure Command Line installed.
+
+link for download and instruction for the last version https://github.com/allure-framework/allure2/releases
